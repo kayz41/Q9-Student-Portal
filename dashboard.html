@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | ISBAT University</title>
+    <link rel="stylesheet" href="portal.css">
+
+    <!-- Internal CSS is used only for the required 2-by-2 quick-links grid. -->
+    <style>
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .quick-link-card {
+            display: block;
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #dedee8;
+            border-radius: 12px;
+            color: #1A1A2E;
+            text-decoration: none;
+            font-weight: 700;
+            min-height: 90px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(26, 26, 46, 0.10);
+        }
+
+        .quick-link-card span {
+            display: block;
+            margin-top: 8px;
+            color: #686879;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        @media (max-width: 600px) {
+            .quick-links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed sidebar contains the university identity and three page links. -->
+    <aside class="sidebar">
+        <img src="../Question-01/https://raw.githubusercontent.com/kayz41/Web-Design-Lab-Practicals/main/Question-01/isbat-university-logo.png" alt="ISBAT University logo" class="university-logo">
+        <h2 class="sidebar-title">Student Portal</h2>
+        <p class="student-sidebar-name">Joel Kayz</p>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+            <a class="active" href="dashboard.html">Dashboard</a>
+            <a href="courses.html">My Courses</a>
+            <a href="fee-statement.html">Fee Statement</a>
+        </nav>
+        <p class="sidebar-footer">ISBAT University<br>Student Self-Service</p>
+    </aside>
+
+    <!-- Main content is offset from the fixed sidebar by external CSS. -->
+    <main class="main-content">
+        <header class="page-header">
+            <div>
+                <p class="eyebrow">STUDENT SELF-SERVICE</p>
+                <h1>Welcome, Joel Kayz</h1>
+                <p class="date-line">Today is <span id="today-date">17 November 2026</span></p>
+            </div>
+            <!-- Inline CSS is intentionally used only for the Active status badge. -->
+            <span class="status-badge" style="background-color: #EAF3DE; color: #27500A;">Active</span>
+        </header>
+
+        <section class="section-block" aria-labelledby="overview-heading">
+            <h2 id="overview-heading">Academic Overview</h2>
+            <!-- Flexbox metric cards are styled in the external portal.css file. -->
+            <div class="metrics-row">
+                <article class="metric-card">
+                    <p class="metric-label">Current GPA</p>
+                    <p class="metric-value">4.2 <span>/ 5.0</span></p>
+                    <p class="metric-note">Cumulative grade point average</p>
+                </article>
+                <article class="metric-card">
+                    <p class="metric-label">Credit Hours</p>
+                    <p class="metric-value">18</p>
+                    <p class="metric-note">Registered this semester</p>
+                </article>
+                <article class="metric-card">
+                    <p class="metric-label">Outstanding Fee Balance</p>
+                    <p class="metric-value">UGX 850,000</p>
+                    <p class="metric-note">Illustrative student account balance</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block" aria-labelledby="quick-links-heading">
+            <h2 id="quick-links-heading">Quick Links</h2>
+            <!-- The 2-by-2 grid layout for these cards is defined in this page's internal CSS. -->
+            <div class="quick-links-grid">
+                <a class="quick-link-card" href="dashboard.html">Dashboard
+                    <span>View your student overview</span>
+                </a>
+                <a class="quick-link-card" href="courses.html">My Courses
+                    <span>Check enrolled courses and timetable</span>
+                </a>
+                <a class="quick-link-card" href="fee-statement.html">Fee Statement
+                    <span>View the fee statement placeholder</span>
+                </a>
+                <a class="quick-link-card" href="#" aria-label="Update Profile placeholder">Update Profile
+                    <span>Profile updates are not enabled in this demo</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="page-footer">© 2026 ISBAT University. Student Self-Service Portal.</footer>
+    </main>
+
+    <!-- JavaScript displays the visitor's current date in a readable format. -->
+    <script>
+        const today = new Date();
+        document.getElementById("today-date").textContent =
+            today.toLocaleDateString("en-UG", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+    </script>
+</body>
+</html>
