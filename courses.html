@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses | ISBAT University</title>
+    <link rel="stylesheet" href="portal.css">
+
+    <!-- Internal CSS colours each course in the weekly timetable. -->
+    <style>
+        .webtech { background: #DCEBFF; color: #173B68; }
+        .cprog { background: #FCE4D6; color: #78350F; }
+        .database { background: #E5E1F8; color: #433477; }
+        .networking { background: #DDF3E4; color: #14532D; }
+        .timetable td.course-slot {
+            text-align: center;
+            font-weight: 700;
+            border-radius: 5px;
+            padding: 12px 7px;
+        }
+        .timetable td.empty-slot {
+            background: #ffffff;
+            color: #a1a1aa;
+        }
+        .timetable .day-cell {
+            background: #1A1A2E;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .timetable .time-cell {
+            background: #f0f0f5;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .timetable-note {
+            color: #686879;
+            font-size: 0.9rem;
+            margin-top: 12px;
+        }
+        @media (max-width: 850px) {
+            .timetable-wrap { overflow-x: auto; }
+            .timetable { min-width: 900px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- The same fixed sidebar keeps navigation consistent across portal pages. -->
+    <aside class="sidebar">
+        <img src="../Question-01/https://raw.githubusercontent.com/kayz41/Web-Design-Lab-Practicals/main/Question-01/isbat-university-logo.png" alt="ISBAT University logo" class="university-logo">
+        <h2 class="sidebar-title">Student Portal</h2>
+        <p class="student-sidebar-name">Joel Kayz</p>
+        <nav class="sidebar-nav" aria-label="Main navigation">
+            <a href="dashboard.html">Dashboard</a>
+            <a class="active" href="courses.html">My Courses</a>
+            <a href="fee-statement.html">Fee Statement</a>
+        </nav>
+        <p class="sidebar-footer">ISBAT University<br>Student Self-Service</p>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-header simple-header">
+            <div>
+                <p class="eyebrow">ACADEMIC RECORDS</p>
+                <h1>My Courses</h1>
+                <p class="date-line">Semester 2 · Academic Year 2026/2027</p>
+            </div>
+            <a class="back-link" href="dashboard.html">← Back to Dashboard</a>
+        </header>
+
+        <section class="section-block" aria-labelledby="enrolled-heading">
+            <h2 id="enrolled-heading">Enrolled Courses</h2>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Credits</th>
+                            <th>Lecturer</th>
+                            <th>Room</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Course names, staff and room allocations are illustrative sample portal data. -->
+                        <tr>
+                            <td>BIT 2201</td><td>Web Technologies</td><td>3</td>
+                            <td>Ms. Sarah Namusoke</td><td>Lab 2</td>
+                            <td><span class="course-status" style="background: #E1F5EE; color: #085041;">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>BIT 2202</td><td>Programming in C</td><td>4</td>
+                            <td>Mr. Daniel Kato</td><td>Lab 1</td>
+                            <td><span class="course-status" style="background: #E1F5EE; color: #085041;">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>BIT 2203</td><td>Database Management Systems</td><td>3</td>
+                            <td>Ms. Grace Akello</td><td>Room B204</td>
+                            <td><span class="course-status" style="background: #E1F5EE; color: #085041;">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>BIT 2204</td><td>Computer Networks</td><td>3</td>
+                            <td>Mr. Michael Ssemanda</td><td>Lab 3</td>
+                            <td><span class="course-status" style="background: #E1F5EE; color: #085041;">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>BIT 2205</td><td>Systems Analysis and Design</td><td>3</td>
+                            <td>Dr. Peter Okello</td><td>Room C105</td>
+                            <td><span class="course-status" style="background: #FAEEDA; color: #633806;">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>BIT 2206</td><td>Professional Communication</td><td>2</td>
+                            <td>Ms. Ruth Nakiwala</td><td>Room A102</td>
+                            <td><span class="course-status" style="background: #FAEEDA; color: #633806;">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section-block" aria-labelledby="timetable-heading">
+            <h2 id="timetable-heading">Weekly Timetable</h2>
+            <p class="section-intro">Class schedule from Monday to Friday, 8:00 AM to 5:00 PM.</p>
+            <div class="timetable-wrap">
+                <table class="timetable">
+                    <thead>
+                        <tr>
+                            <th class="day-cell">Day</th>
+                            <th>8–9 AM</th><th>9–10 AM</th><th>10–11 AM</th>
+                            <th>11 AM–12 PM</th><th>12–1 PM</th><th>1–2 PM</th>
+                            <th>2–3 PM</th><th>3–4 PM</th><th>4–5 PM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- colspan=2 makes each listed lecture occupy two consecutive one-hour slots. -->
+                        <tr>
+                            <td class="day-cell">Monday</td>
+                            <td class="course-slot webtech" colspan="2">Web Technologies<br>BIT 2201</td>
+                            <td class="empty-slot">—</td><td class="empty-slot">—</td><td class="empty-slot">Break</td>
+                            <td class="course-slot cprog" colspan="2">Programming in C<br>BIT 2202</td>
+                            <td class="empty-slot">—</td><td class="empty-slot">—</td>
+                        </tr>
+                        <tr>
+                            <td class="day-cell">Tuesday</td>
+                            <td class="empty-slot">—</td><td class="empty-slot">—</td>
+                            <td class="course-slot database" colspan="2">Database Management<br>BIT 2203</td>
+                            <td class="empty-slot">Break</td><td class="empty-slot">—</td>
+                            <td class="course-slot networking" colspan="2">Computer Networks<br>BIT 2204</td>
+                            <td class="empty-slot">—</td>
+                        </tr>
+                        <tr>
+                            <td class="day-cell">Wednesday</td>
+                            <td class="course-slot cprog" colspan="2">Programming in C<br>BIT 2202</td>
+                            <td class="empty-slot">—</td><td class="empty-slot">—</td><td class="empty-slot">Break</td>
+                            <td class="course-slot webtech" colspan="2">Web Technologies<br>BIT 2201</td>
+                            <td class="empty-slot">—</td><td class="empty-slot">—</td>
+                        </tr>
+                        <tr>
+                            <td class="day-cell">Thursday</td>
+                            <td class="empty-slot">—</td><td class="empty-slot">—</td>
+                            <td class="course-slot networking" colspan="2">Computer Networks<br>BIT 2204</td>
+                            <td class="empty-slot">Break</td>
+                            <td class="course-slot database" colspan="2">Database Management<br>BIT 2203</td>
+                            <td class="empty-slot">—</td><td class="empty-slot">—</td>
+                        </tr>
+                        <tr>
+                            <td class="day-cell">Friday</td>
+                            <td class="empty-slot">—</td><td class="empty-slot">—</td><td class="empty-slot">—</td>
+                            <td class="course-slot webtech" colspan="2">Web Technologies<br>BIT 2201</td>
+                            <td class="empty-slot">Break</td><td class="empty-slot">—</td>
+                            <td class="course-slot cprog" colspan="2">Programming in C<br>BIT 2202</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="timetable-note">Course blocks are colour-coded. The timetable uses colspan to show lectures that run for two consecutive hours.</p>
+            <div class="course-legend">
+                <span><i class="legend-dot webtech-dot"></i> Web Technologies</span>
+                <span><i class="legend-dot cprog-dot"></i> Programming in C</span>
+                <span><i class="legend-dot database-dot"></i> Database Management</span>
+                <span><i class="legend-dot networking-dot"></i> Computer Networks</span>
+            </div>
+        </section>
+
+        <footer class="page-footer">© 2026 ISBAT University. Student Self-Service Portal.</footer>
+    </main>
+</body>
+</html>
